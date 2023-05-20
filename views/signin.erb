@@ -1,0 +1,8 @@
+<% if session[:user] == nil%>
+    <h1>ログイン</h1>
+    <form action='/signin' method='post'>
+    	<input type="text" name="username" placeholder="ユーザー名" required>
+    	<input type="password" name="password" placeholder="パスワード" required>
+    	<input type="submit" value="Sign in">
+    </form>
+<% end %>

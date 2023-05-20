@@ -1,0 +1,7 @@
+<% if session[:user] == nil%>
+    <h1>筋トレ投稿</h1>
+    <form action='/post' method='post'>
+        <input type="text" name="detail" placeholder="詳細">
+    	<input type="submit" value="投稿">
+    </form>
+<% end %>
