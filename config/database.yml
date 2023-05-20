@@ -1,0 +1,9 @@
+default_env: &default
+  adapter: postgresql
+  encoding: unicode
+  database: muscle_top
+development:
+  <<: *default
+
+production:
+  <<: *default
