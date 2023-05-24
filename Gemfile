@@ -12,6 +12,12 @@ gem 'sinatra-activerecord', '~> 2.0'
 gem 'sinatra-contrib', '~> 2.1'
 gem 'webrick', '~> 1.7'
 
+# gem 'jquery-rails', '~> 4.5', '>= 4.5.1'
+# gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+# gem 'activestorage', '~> 7.0', '>= 7.0.4.3'
+# gem 'turbolinks', '~> 5.2', '>= 5.2.1'
+
+
 
 # group :development do
 #   gem 'sqlite3', '~>1.4.1'

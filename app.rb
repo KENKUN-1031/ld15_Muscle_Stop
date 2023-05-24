@@ -4,6 +4,7 @@ require 'sinatra/reloader' if development?
 require './models'
 require 'dotenv/load'
 
+
 enable :sessions
 
 before do
