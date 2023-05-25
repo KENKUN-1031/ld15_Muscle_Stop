@@ -8,17 +8,20 @@
         <input class="input-buttons" type="password" name="password_confirmation" placeholder="CONFIRM">
         <label class="label-css">
             <div enctype="multipart/form-data">
-                <p><input type="file" name="file" id="file">ロゴを選択</p>
+                <p id="super"><input type="file" name="file" id="file">ロゴを選択</p>
             </div>
         </label>
         <input class="signup-button" type="submit" value="Sign up">
     </form>
+    <div class="signin-button">
+        <a href="/signin"><p>アカウントをお持ちの方<p></a>
+    </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $('#file').on('change', function () {
     var file = $(this).prop('files')[0];
-    $('p').text(file.name);
+    $('#super').text(file.name);
 });
 </script>

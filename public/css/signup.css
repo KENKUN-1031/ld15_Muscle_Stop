@@ -59,3 +59,13 @@ input[type="file"]{
     border: 2px solid black;
     padding-top: 3px;
 }
+.signin-button{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.signin-button a{
+    text-decoration: none;
+    color: black;
+}

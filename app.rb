@@ -18,7 +18,11 @@ end
 
 
 get '/' do
-    erb :index
+    if session[:user] == nil
+        redirect '/signin'
+    else
+       erb :index 
+    end
 end
 
 
@@ -56,5 +60,10 @@ post '/signin' do
     if user && user.authenticate(params[:password])
        session[:user] = user.id
     end
+    redirect '/'
+end
+
+get '/signout' do
+    session[:user] = nil
     redirect '/'
 end
