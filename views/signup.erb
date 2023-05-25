@@ -2,16 +2,16 @@
 
 <body>
     <h1>新規登録</h1>
-    <form action="/signup" method="post" enctype="multipart/form-data">
-        <input type="text" name="username" placeholder="ユーザー名">
-        <input type="password" name="password" placeholder="パスワード">
-        <input type="password" name="password_confirmation" placeholder="再入力">
-        <label>
+    <form class="blob" action="/signup" method="post" enctype="multipart/form-data">
+        <input class="input-buttons" type="text" name="username" placeholder="USERNAME">
+        <input class="input-buttons" type="password" name="password" placeholder="PASSWORD">
+        <input class="input-buttons" type="password" name="password_confirmation" placeholder="CONFIRM">
+        <label class="label-css">
             <div enctype="multipart/form-data">
-                <p><input type="file" name="file" id="file"></p>
+                <p><input type="file" name="file" id="file">ロゴを選択</p>
             </div>
         </label>
-        <input type="submit" value="Sign up">
+        <input class="signup-button" type="submit" value="Sign up">
     </form>
 </body>
 
@@ -19,6 +19,6 @@
 <script>
 $('#file').on('change', function () {
     var file = $(this).prop('files')[0];
-    $('#icon').text(file.name);
+    $('p').text(file.name);
 });
 </script>

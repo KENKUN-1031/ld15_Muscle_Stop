@@ -1,3 +1,61 @@
 body{
     background-color: #F5FBFF;
 }
+h1{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 45px;
+}
+h3{
+    text-align: center;
+}
+.blob{
+    display: flex;
+    flex-direction: column;
+}
+.input-buttons{
+    width: 200px;
+    margin: 0 auto;
+    background-color: #CCCCCC;
+    border: none;
+    border-radius: 20px;
+    height: 45px;
+    text-align: center;
+    margin-top: 95px;
+}
+.label-css{
+    width: 200px;
+    color: #8e8e8e;
+    margin: 0 auto;
+    background-color: #CCCCCC;
+    border: none;
+    border-radius: 20px;
+    height: 45px;
+    text-align: center;
+    margin-top: 100px
+}
+.label-css:hover{
+    border: 2px solid black;
+}
+label p{
+    padding-top: 10px;
+}
+input[type="file"]{
+    display: none;
+}
+.signup-button{
+    width: 250px;
+    margin: 0 auto;
+    background-color: #CCCCCC;
+    border: none;
+    border-radius: 20px;
+    height: 55px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 100px;
+    font-size: 20px;
+}
+.signup-button:hover{
+    border: 2px solid black;
+    padding-top: 3px;
+}
