@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Muscle Stop</title>
+        <link rel="stylesheet" href="/css/layout.css">
+        <script src="https://kit.fontawesome.com/abdcfdfe62.js" crossorigin="anonymous"></script>
+    <body>
+        <header>
+            <div class="right-top">
+                <form action="" method="post">
+                    <label>
+                        <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                        <input class="search-bar" type="text" placeholder="USERNAME">
+                    </label>
+                </form>
+            </div>
+            <div class="toolbar">
+                <ul>
+                    <li><a href="">FRIEND</a></li>
+                    <li><a href="/stopwatch">STOPWATCH</a></li>
+                    <li><a href="/post">POST</a></li>
+                    <li><a href="">EXPLORE</a></li>
+                    <li><a href="/">USERNAME</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <%= yield %>
+        </main>
+    </body>
+</html>

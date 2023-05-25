@@ -1,55 +1,17 @@
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!-- <head>-->
-<!--  <meta charset="utf-8">-->
-<!--  <title>ストップウォッチ</title>-->
-<!-- </head>-->
-
-<!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>-->
-<!--<script type="text/javascript" src="/assets/javascripts/application.js"></script>-->
-
-<!-- <body>-->
-<!--  <center>-->
-<!--  <h1>ストップウォッチ</h1>-->
-<!--  <span id="min" style="font-size:80px;"></span>-->
-<!--  <span>:</span>-->
-<!--  <span id="sec" style="font-size:80px;"></span>-->
-<!--  </center> -->
-
-<!--  <p>-->
-<!--   <button id="begin">start</button>-->
-<!--   <button id="stop" style="display:none">pose</button>-->
-<!--   <button id="end">reset</button>-->
-<!--  </p>-->
-
-<!--  <p id="calc">時間を計ります。</p>-->
-<!-- </body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Stopwatch</title>
-  <style>
-    #timer {
-      font-size: 48px;
-      text-align: center;
-    }
-    #buttons {
-      text-align: center;
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="/css/stopwatch.css"> 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="/javascripts/applications.js"></script>
 </head>
 <body>
   <div id="timer">00:00:00</div>
   <div id="buttons">
-    <button id="start">Start</button>
-    <button id="pause">Pause</button>
-    <button id="reset">Reset</button>
+    <button class="each-buttons" id="start">Start</button>
+    <button class="each-buttons" id="pause">Pause</button>
+    <button class="each-buttons" id="reset">Reset</button>
   </div>
-
 </body>
 </html>
