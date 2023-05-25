@@ -1,15 +1,19 @@
-<h1>新規登録</h1>
-<form action="/signup" method="post" enctype="multipart/form-data">
-    <input type="text" name="username" placeholder="ユーザー名">
-    <input type="password" name="password" placeholder="パスワード">
-    <input type="password" name="password_confirmation" placeholder="再入力">
-    <label>
-        <div enctype="multipart/form-data">
-            <p><input type="file" name="file" id="file"></p>
-        </div>
-    </label>
-    <input type="submit" value="Sign up">
-</form>
+<link rel="stylesheet" href="/css/signup.css">
+
+<body>
+    <h1>新規登録</h1>
+    <form action="/signup" method="post" enctype="multipart/form-data">
+        <input type="text" name="username" placeholder="ユーザー名">
+        <input type="password" name="password" placeholder="パスワード">
+        <input type="password" name="password_confirmation" placeholder="再入力">
+        <label>
+            <div enctype="multipart/form-data">
+                <p><input type="file" name="file" id="file"></p>
+            </div>
+        </label>
+        <input type="submit" value="Sign up">
+    </form>
+</body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

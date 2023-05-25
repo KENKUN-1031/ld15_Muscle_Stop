@@ -1,8 +1,16 @@
-<% if session[:user] == nil%>
+<link rel="stylesheet" href="/css/signin.css">
+
+<body>
     <h1>ログイン</h1>
-    <form action='/signin' method='post'>
-    	<input type="text" name="username" placeholder="ユーザー名" required>
-    	<input type="password" name="password" placeholder="パスワード" required>
-    	<input type="submit" value="Sign in">
+    <form class="blob" action='/signin' method='post'>
+        <div class="input-set">
+            <h3>USERNAME</h3>
+        	<input type="text" name="username" placeholder="ユーザー名" required>
+        </div>
+    	<div class="input-set">
+    	    <h3>PASSWORD</h3>
+    	    <input type="password" name="password" placeholder="パスワード" required>
+    	</div>
+    	<input type="submit" value="SIGNIN">
     </form>
-<% end %>
+</body>

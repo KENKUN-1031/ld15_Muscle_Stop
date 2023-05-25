@@ -19,7 +19,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#reset").click(function() {
+  $("#end").click(function() {
     clearInterval(interval);
     $("#timer").text("00:00:00");
     running = false;

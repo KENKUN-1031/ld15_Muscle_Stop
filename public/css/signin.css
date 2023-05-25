@@ -1,0 +1,42 @@
+body{
+    background-color: #F5FBFF;
+}
+h1{
+    text-align: center;
+    margin-top: 75px;
+}
+.blob{
+    display: flex;
+    flex-direction: column;
+}
+.input-set{
+    margin-top: 110px;
+}
+.input-set h3{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.input-set input{
+    display: flex;
+    background-color: #CCCCCC;
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+    height: 45px;
+    text-align: center;
+    margin: 0 auto;
+}
+input[value="SIGNIN"]{
+    font-weight: bold;
+    width: 250px;
+    height: 55px;
+    background-color: #CCCCCC;
+    border: none;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 145px;
+    text-align: center;
+}
+input[value="SIGNIN"]:hover{
+    border: 2px solid black;
+}

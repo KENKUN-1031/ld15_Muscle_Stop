@@ -39,7 +39,7 @@ body{
   border-bottom: 5px solid #FCA510;
   transition: 0.15s;
 }
-#reset{
+#end{
   background-color: #E3242B;
   border-bottom: 5px solid #B90E0A;
   transition: 0.15s;
@@ -52,7 +52,7 @@ body{
   margin-top: 3px;
   border-bottom: 2px solid #FCA510;
 }
-#reset:hover{
+#end:hover{
   margin-top: 3px;
   border-bottom: 2px solid #B90E0A;
 }
