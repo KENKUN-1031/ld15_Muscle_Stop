@@ -4,6 +4,10 @@ require 'sinatra/reloader' if development?
 require './models'
 require 'dotenv/load'
 
+require 'open-uri'
+require 'net/http'
+require 'json'
+
 
 enable :sessions
 
@@ -21,7 +25,10 @@ get '/' do
     if session[:user] == nil
         redirect '/signin'
     else
-       erb :index 
+        p "-------------"
+        p User.find(session[:user]).img
+        p User.find(session[:user]).username
+        erb :index 
     end
 end
 
@@ -44,9 +51,13 @@ end
 
 post '/signup' do
     img_url = ''
+    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    p params[:file]
     if params[:file]
         img = params[:file]
         tempfile = img[:tempfile]
+        p ="^^^^^^^^^^^^^^^^^^^^^^"
+        p img
         upload = Cloudinary::Uploader.upload(tempfile.path)
         img_url = upload['url']
     end

@@ -2,13 +2,14 @@
 
 <body>
     <h1>新規登録</h1>
-    <form class="blob" action="/signup" method="post" enctype="multipart/form-data">
+    <form  action="/signup" method="post" class="blob" enctype="multipart/form-data">
         <input class="input-buttons" type="text" name="username" placeholder="USERNAME">
         <input class="input-buttons" type="password" name="password" placeholder="PASSWORD">
         <input class="input-buttons" type="password" name="password_confirmation" placeholder="CONFIRM">
         <label class="label-css">
             <div enctype="multipart/form-data">
-                <p id="super"><input type="file" name="file" id="file">ロゴを選択</p>
+                <input type="file" name="file" id="file">
+                <p id="super">ロゴを選択</p>
             </div>
         </label>
         <input class="signup-button" type="submit" value="Sign up">

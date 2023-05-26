@@ -3,3 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+.logo-icon{
+    width: 100px;
+    height: 100px;
+    
+}
+body{
+    background-color: #F5FBFF;
+}
+.logo-img{
+    text-align: center;
+    margin-top: 25px;
+}
+.logo-icon{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.username{
+    font-size: 45px;
+    text-align: center;
+}

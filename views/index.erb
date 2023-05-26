@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="/assets/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-
+  <div class="logo-img">
+    <img class="logo-icon" src="<%= User.find(session[:user]).img %>">
+  </div>
+  <p class="username">USERNAME</p>
+  <!--<p class="username"><#%= User.find(session[:user]).username%></p>-->
 </body>
 </html>
