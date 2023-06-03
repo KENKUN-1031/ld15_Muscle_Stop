@@ -10,7 +10,7 @@
   <div class="logo-img">
     <img class="logo-icon" src="<%= User.find(session[:user]).img %>">
   </div>
-  <p class="username">USERNAME</p>
-  <!--<p class="username"><#%= User.find(session[:user]).username%></p>-->
+  <!--<p class="username">USERNAME</p>-->
+  <p class="username"><%= User.find(session[:user]).username%></p>
 </body>
 </html>

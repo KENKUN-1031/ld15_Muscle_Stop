@@ -1,7 +1,17 @@
-<% if session[:user] == nil%>
-    <h1>筋トレ投稿</h1>
-    <form action='/post' method='post'>
-        <input type="text" name="detail" placeholder="詳細">
-    	<input type="submit" value="投稿">
-    </form>
-<% end %>
+<!DOCTYPE html>
+<html lang="ja">
+<link rel="stylesheet" href="/css/post.css">
+<body>
+    <% unless session[:user] == nil%>
+        <!--<h1>筋トレ投稿</h1>-->
+        <h1><%= @time %></h1>
+        <h1><%= @date %></h1>
+        <div class="logo-img">
+            <img class="logo-icon" src="<%= User.find(session[:user]).img %>">
+        </div>
+        <form action='/post' method='post'>
+            <input type="text" name="detail" placeholder="詳細" cols="30" rows="10">
+        	<input type="submit" value="投稿">
+        </form>
+    <% end %>
+</body>

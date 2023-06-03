@@ -16,6 +16,10 @@ header{
     font-weight: bold;
     font-size: 30px;
     margin-right: 30px;
+    color: black;
+}
+a {
+    text-decoration: none;
 }
 .search{
     margin-top: 10px;

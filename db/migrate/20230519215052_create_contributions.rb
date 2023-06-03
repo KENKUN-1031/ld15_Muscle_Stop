@@ -13,7 +13,7 @@ class CreateContributions < ActiveRecord::Migration[5.2]
     create_table :activity_logs do |t|
       t.string :user_id
       t.string :date
-      t.integer :time
+      t.string :time
       t.string :detail
     end
   end

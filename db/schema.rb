@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2023_05_19_215052) do
   create_table "activity_logs", force: :cascade do |t|
     t.string "user_id"
     t.string "date"
-    t.integer "time"
+    t.string "time"
     t.string "detail"
   end
 

@@ -1,7 +1,9 @@
 /*global $*/
+/*global fetch*/
 $(document).ready(function() {
   var startTime;
   var interval;
+  var timeString;
   var running = false;
 
   $("#start").click(function() {
@@ -19,7 +21,16 @@ $(document).ready(function() {
     }
   });
 
-  $("#end").click(function() {
+  $("#end").click(function async() {
+    // ここからfetchAPI使ってる↓
+    // fetch('/post', {
+    //   Method: 'POST',
+    //   Body: JSON.stringify({
+    //     "Time": timeString
+    //   })
+    // })
+    window.location.href= "/post?time="+timeString //ページに飛ぶと同時にtimeStringを渡してる
+    
     clearInterval(interval);
     $("#timer").text("00:00:00");
     running = false;
@@ -31,7 +42,7 @@ $(document).ready(function() {
     var minutes = Math.floor((elapsed % 3600000) / 60000);
     var seconds = Math.floor((elapsed % 60000) / 1000);
 
-    var timeString =
+    timeString =
       ("0" + hours).slice(-2) +
       ":" +
       ("0" + minutes).slice(-2) +

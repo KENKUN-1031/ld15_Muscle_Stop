@@ -8,7 +8,7 @@
     <body>
         <header>
             <div class="right-top">
-                <p class="title">BodyBlitz</p>
+                <a href="/"><p class="title">BodyBlitz</p></a>
                 <form class="search" action="" method="post">
                     <label>
                         <i class="fa-solid fa-magnifying-glass fa-lg"></i>
@@ -18,12 +18,16 @@
             </div>
             <div class="toolbar">
                 <ul>
-                    <li><a href="">FRIEND</a></li>
-                    <li><a href="/stopwatch">STOPWATCH</a></li>
-                    <li><a href="/post">POST</a></li>
-                    <li><a href="">EXPLORE</a></li>
-                    <li><a href="/">USERNAME</a></li>
-                    <!--<li><a href="/"><#%= User.find(session[:user]).username%></a></li>-->
+
+                    <!--<li><a href="">EXPLORE</a></li>-->
+                    <!--<li><a href="/">USERNAME</a></li>-->
+                    <% unless session[:user].nil? %>
+                        <li><a href="">FRIEND</a></li>
+                        <li><a href="/stopwatch">STOPWATCH</a></li>
+                        <!--<li><a href="/post">POST</a></li>-->
+                        <li><a href="/"><%= User.find(session[:user]).username%></a></li>
+                        <li><a href="/signout">SIGNOUT</a></li>
+                    <% end %>
                 </ul>
             </div>
         </header>

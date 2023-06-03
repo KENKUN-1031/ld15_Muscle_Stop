@@ -25,9 +25,9 @@ get '/' do
     if session[:user] == nil
         redirect '/signin'
     else
-        p "-------------"
-        p User.find(session[:user]).img
-        p User.find(session[:user]).username
+        # p "-------------"
+        # p User.find(session[:user]).img
+        # p User.find(session[:user]).username
         erb :index 
     end
 end
@@ -42,6 +42,16 @@ get '/signin' do
 end
 
 get '/post' do
+    # content_type :json
+    # time = JSON.parse(request.body.read)["Time"]
+    # { message: "Received time: #{time}" }.to_json
+    @time = params[:time]
+    date_before = DateTime.now()
+    @date = date_before.new_offset('+09:00').strftime('%Y-%m-%d %H:%M:%S')
+    
+    p"¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥"
+    p params[:time]
+    p params[:time].class
     erb :post
 end
 
@@ -51,13 +61,9 @@ end
 
 post '/signup' do
     img_url = ''
-    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    p params[:file]
     if params[:file]
         img = params[:file]
         tempfile = img[:tempfile]
-        p ="^^^^^^^^^^^^^^^^^^^^^^"
-        p img
         upload = Cloudinary::Uploader.upload(tempfile.path)
         img_url = upload['url']
     end
@@ -71,6 +77,14 @@ post '/signin' do
     if user && user.authenticate(params[:password])
        session[:user] = user.id
     end
+    redirect '/'
+end
+
+post '/post' do
+    # activity_log = Activity_Logs.create(user_id: session[:user], date: Time.now, time: )
+    p "-------------------"
+    p session[:user]
+    activity_log = Activity_Logs.create(user_id: session[:user], date: @date, time: @time, detail: params[:detail])
     redirect '/'
 end
 
