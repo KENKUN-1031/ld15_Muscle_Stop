@@ -37,6 +37,14 @@ get '/signup' do
     erb :signup
 end
 
+get '/profile/search' do
+    user = User.find_by(username: params[:searchUsername])
+    session[:searchId] = user.id
+    p "9999999999999999999999"
+    p session[:searchId]
+    erb :searchProfile
+end
+
 get '/signin' do
     erb :signin
 end
@@ -45,11 +53,11 @@ get '/post' do
     # content_type :json
     # time = JSON.parse(request.body.read)["Time"]
     # { message: "Received time: #{time}" }.to_json
-    @time = params[:time]
+    session[:time] = params[:time]
     date_before = DateTime.now()
-    @date = date_before.new_offset('+09:00').strftime('%Y-%m-%d %H:%M:%S')
+    session[:date] = date_before.new_offset('+09:00').strftime('%Y-%m-%d %H:%M:%S')
     
-    p"¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥"
+    p"¥¥¥¥¥¥¥¥¥getPost¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥"
     p params[:time]
     p params[:time].class
     erb :post
@@ -60,6 +68,7 @@ get '/stopwatch' do
 end
 
 post '/signup' do
+    # ユーザー名がかぶってた時の処理書かないとダメ
     img_url = ''
     if params[:file]
         img = params[:file]
@@ -82,9 +91,11 @@ end
 
 post '/post' do
     # activity_log = Activity_Logs.create(user_id: session[:user], date: Time.now, time: )
-    p "-------------------"
+    p "--------Postpost-----------"
     p session[:user]
-    activity_log = Activity_Logs.create(user_id: session[:user], date: @date, time: @time, detail: params[:detail])
+    p @time
+    p @date
+    activity_log = Activity_Logs.create(user_id: session[:user], date: session[:date], time: session[:time], detail: params[:detail])
     redirect '/'
 end
 

@@ -8,12 +8,14 @@
 </head>
 <body>
   <div class="logo-img">
-    <img class="logo-icon" src="<%= User.find_by_id(session[:user]).img %>">
+    <img class="logo-icon" src="<%= User.find_by_id(session[:searchId]).img %>">
   </div>
   <!--<p class="username">USERNAME</p>-->
-  <p class="username"><%= User.find(session[:user]).username%></p>
+  <p class="username"><%= User.find(session[:searchId]).username%></p>
   <% Activity_Logs.all.each do |i| %>
-    <% if i.user_id == session[:user].to_s %>
+    <% p "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"%>
+    <% p i.user_id %>
+    <% if i.user_id == session[:searchId].to_s %>
       <% p "inside if" %>
       <div class="log_block">
         <p><%= i.date %></p>

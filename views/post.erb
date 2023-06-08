@@ -4,8 +4,8 @@
 <body>
     <% unless session[:user] == nil%>
         <!--<h1>筋トレ投稿</h1>-->
-        <h1><%= @time %></h1>
-        <h1><%= @date %></h1>
+        <h1><%= session[:time] %></h1>
+        <h1><%= session[:date] %></h1>
         <div class="logo-img">
             <img class="logo-icon" src="<%= User.find(session[:user]).img %>">
         </div>

@@ -25,3 +25,14 @@ body{
     font-size: 45px;
     text-align: center;
 }
+.log_block{
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    margin: 0 auto;
+    background-color: #EDEDED;
+    height: 50px;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
