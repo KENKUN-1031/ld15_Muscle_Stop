@@ -10,13 +10,14 @@
   <div class="logo-img">
     <img class="logo-icon" src="<%= User.find_by_id(session[:searchId]).img %>">
   </div>
+  <form class="follow" action="/profile/follow/<%= session[:searchId]%>" method="post">
+    <%p "------------FollowForm-------------"%>
+    <input class="follow-button" type="submit" value="Follow">
+  </form>
   <!--<p class="username">USERNAME</p>-->
   <p class="username"><%= User.find(session[:searchId]).username%></p>
   <% Activity_Logs.all.each do |i| %>
-    <% p "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"%>
-    <% p i.user_id %>
     <% if i.user_id == session[:searchId].to_s %>
-      <% p "inside if" %>
       <div class="log_block">
         <p><%= i.date %></p>
         <p><%= i.time %></p>

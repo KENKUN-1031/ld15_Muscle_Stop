@@ -14,7 +14,6 @@
   <p class="username"><%= User.find(session[:user]).username%></p>
   <% Activity_Logs.all.each do |i| %>
     <% if i.user_id == session[:user].to_s %>
-      <% p "inside if" %>
       <div class="log_block">
         <p><%= i.date %></p>
         <p><%= i.time %></p>

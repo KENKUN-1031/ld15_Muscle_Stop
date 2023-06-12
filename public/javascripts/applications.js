@@ -5,19 +5,29 @@ $(document).ready(function() {
   var interval;
   var timeString;
   var running = false;
+  var pauseFlag = false;
+  var pauseTime = 0;
 
   $("#start").click(function() {
     if (!running) {
-      startTime = Date.now();
+      if (pauseFlag){
+        startTime = Date.now() - pauseTime;
+      }else{
+        startTime = Date.now();
+      }
       interval = setInterval(updateTimer, 1000);
       running = true;
+      pauseFlag = false;
     }
+    
   });
 
   $("#pause").click(function() {
     if (running) {
       clearInterval(interval);
       running = false;
+      pauseFlag = true;
+      pauseTime = Date.now() - startTime;
     }
   });
 
@@ -34,6 +44,7 @@ $(document).ready(function() {
     clearInterval(interval);
     $("#timer").text("00:00:00");
     running = false;
+    pauseFlag = false;
   });
 
   function updateTimer() {

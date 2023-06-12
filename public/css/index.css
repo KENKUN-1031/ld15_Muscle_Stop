@@ -6,7 +6,6 @@
 .logo-icon{
     width: 100px;
     height: 100px;
-    
 }
 body{
     background-color: #F5FBFF;
@@ -35,4 +34,24 @@ body{
     align-items: center;
     margin-bottom: 10px;
     font-weight: bold;
+}
+.follow{
+    text-align:center;
+}
+.follow-button{
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  color: black;
+  height: 45px;
+  font-size: 30px;
+  background-color:#EDEDED ;
+  box-shadow:2px 2px 2px 0px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.follow-button:hover{
+    border: thin solid black;
 }

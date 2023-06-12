@@ -22,7 +22,7 @@
                     <!--<li><a href="">EXPLORE</a></li>-->
                     <!--<li><a href="/">USERNAME</a></li>-->
                     <% unless session[:user].nil? %>
-                        <li><a href="">FRIEND</a></li>
+                        <li><a href="/friends">FRIEND</a></li>
                         <li><a href="/stopwatch">STOPWATCH</a></li>
                         <!--<li><a href="/post">POST</a></li>-->
                         <li><a href="/"><%= User.find(session[:user]).username%></a></li>

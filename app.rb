@@ -25,9 +25,6 @@ get '/' do
     if session[:user] == nil
         redirect '/signin'
     else
-        # p "-------------"
-        # p User.find(session[:user]).img
-        # p User.find(session[:user]).username
         erb :index 
     end
 end
@@ -38,11 +35,13 @@ get '/signup' do
 end
 
 get '/profile/search' do
-    user = User.find_by(username: params[:searchUsername])
-    session[:searchId] = user.id
-    p "9999999999999999999999"
-    p session[:searchId]
-    erb :searchProfile
+    if User.find_by(username: params[:searchUsername])
+        user = User.find_by(username: params[:searchUsername])
+        session[:searchId] = user.id
+        erb :searchProfile
+    else
+        redirect '/'
+    end
 end
 
 get '/signin' do
@@ -56,15 +55,15 @@ get '/post' do
     session[:time] = params[:time]
     date_before = DateTime.now()
     session[:date] = date_before.new_offset('+09:00').strftime('%Y-%m-%d %H:%M:%S')
-    
-    p"¥¥¥¥¥¥¥¥¥getPost¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥"
-    p params[:time]
-    p params[:time].class
     erb :post
 end
 
 get '/stopwatch' do
     erb :stopwatch
+end
+
+get '/friends' do
+    erb :friends
 end
 
 post '/signup' do
@@ -90,13 +89,30 @@ post '/signin' do
 end
 
 post '/post' do
-    # activity_log = Activity_Logs.create(user_id: session[:user], date: Time.now, time: )
-    p "--------Postpost-----------"
-    p session[:user]
-    p @time
-    p @date
     activity_log = Activity_Logs.create(user_id: session[:user], date: session[:date], time: session[:time], detail: params[:detail])
     redirect '/'
+end
+
+post '/profile/follow/:id' do
+    # Friendsの中身がないからloopが回せない
+    if Friends.all then
+        p "--------中身ない--------"
+        p session[:searchUsername]
+        friends = Friends.create(user_id: session[:user], follower_id: params[:id].to_i)
+        redirect '/'
+    else
+        Friends.all.each do |i|
+            if i.user_id == session[:user] && i.follwer_id == session[:searchUsername] then
+                i.destroy
+                p "----------insideFollow-----------"
+                redirect '/profile/search'
+            else
+                p "---------------elseFollow------------"
+                friends = Friend.create(user_id: session[:user], follower_id: session[:searchUsername])
+                redirect '/profile/search'
+            end
+        end
+    end
 end
 
 get '/signout' do
