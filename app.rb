@@ -115,6 +115,18 @@ post '/profile/follow/:id' do
     end
 end
 
+post '/profile/unfollow/:id' do
+    Friends.all.each do |f| 
+        if f.user_id = session[:user] && f.follower_id == session[:searchId] then
+            f.destroy
+        end
+        redirect '/profile/search'
+    end
+end
+# post '/post/delete/:id' do
+#   Post.find(params[:id]).destroy
+#   redirect '/'
+
 get '/signout' do
     session[:user] = nil
     redirect '/'

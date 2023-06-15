@@ -6,14 +6,27 @@
   <!--<link rel="stylesheet" href="/assets/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="/css/index.css">
 </head>
+<% flag = 0%>
+<% Friends.all.each do |f| %>
+  <% if f.user_id == session[:user] && f.follower_id == session[:searchId] then%>
+    <% flag = 1%>
+  <% end %>
+<% end %>
 <body>
   <div class="logo-img">
     <img class="logo-icon" src="<%= User.find_by_id(session[:searchId]).img %>">
   </div>
-  <form class="follow" action="/profile/follow/<%= session[:searchId]%>" method="post">
-    <%p "------------FollowForm-------------"%>
-    <input class="follow-button" type="submit" value="Follow">
-  </form>
+  <% if flag == 0 then%>
+    <form class="follow" action="/profile/follow/<%= session[:searchId]%>" method="post">
+      <%p "------------FollowForm-------------"%>
+      <input class="follow-button" type="submit" value="Follow">
+    </form>
+  <% elsif flag == 1 then%>
+    <form class="follow" action="/profile/unfollow/<%= session[:searchId]%>" method="post">
+      <%p "------------FolloingForm-------------"%>
+      <input class="follow-button" type="submit" value="Following">
+    </form>
+  <% end %>
   <!--<p class="username">USERNAME</p>-->
   <p class="username"><%= User.find(session[:searchId]).username%></p>
   <% Activity_Logs.all.each do |i| %>
