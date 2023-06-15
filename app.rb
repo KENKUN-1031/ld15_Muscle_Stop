@@ -44,6 +44,16 @@ get '/profile/search' do
     end
 end
 
+get '/profile/search/:id' do
+    if User.find_by(username: params[:id])
+        user = User.find_by(username: params[:id])
+        session[:searchId] = user.id
+        erb :searchProfile
+    else
+        redirect '/'
+    end
+end
+
 get '/signin' do
     erb :signin
 end
@@ -102,15 +112,17 @@ post '/profile/follow/:id' do
         redirect '/'
     else
         Friends.all.each do |i|
-            if i.user_id == session[:user] && i.follwer_id == session[:searchUsername] then
-                i.destroy
-                p "----------insideFollow-----------"
-                redirect '/profile/search'
-            else
-                p "---------------elseFollow------------"
-                friends = Friend.create(user_id: session[:user], follower_id: session[:searchUsername])
-                redirect '/profile/search'
-            end
+            friends = Friend.create(user_id: session[:user], follower_id: session[:searchUsername])
+            redirect '/profile/search'
+            # if i.user_id == session[:user] && i.follwer_id == session[:searchUsername] then
+            #     i.destroy
+            #     p "----------insideFollow-----------"
+            #     redirect '/profile/search'
+            # else
+            #     p "---------------elseFollow------------"
+            #     friends = Friend.create(user_id: session[:user], follower_id: session[:searchUsername])
+            #     redirect '/profile/search'
+            # end
         end
     end
 end
