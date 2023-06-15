@@ -106,14 +106,15 @@ end
 post '/profile/follow/:id' do
     # Friendsの中身がないからloopが回せない
     if Friends.all then
-        p "--------中身ない--------"
-        p session[:searchUsername]
         friends = Friends.create(user_id: session[:user], follower_id: params[:id].to_i)
-        redirect '/'
+        redirect '/profile/search/' + User.find(params[:id]).username
     else
         Friends.all.each do |i|
             friends = Friend.create(user_id: session[:user], follower_id: session[:searchUsername])
-            redirect '/profile/search'
+            p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+            p session[:searchId]
+            p session[:searchUsername]
+            redirect '/profile/search/' + User.find(params[:id]).username
             # if i.user_id == session[:user] && i.follwer_id == session[:searchUsername] then
             #     i.destroy
             #     p "----------insideFollow-----------"
@@ -132,7 +133,7 @@ post '/profile/unfollow/:id' do
         if f.user_id = session[:user] && f.follower_id == session[:searchId] then
             f.destroy
         end
-        redirect '/profile/search'
+        redirect '/profile/search/' + User.find(params[:id]).username
     end
 end
 # post '/post/delete/:id' do
