@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2023_05_19_215052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "timescaledb"
 
   create_table "activity_logs", force: :cascade do |t|
     t.string "user_id"

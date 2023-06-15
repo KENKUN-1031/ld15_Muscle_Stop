@@ -4,14 +4,18 @@
 <body>
     <% unless session[:user] == nil%>
         <!--<h1>筋トレ投稿</h1>-->
-        <h1><%= session[:time] %></h1>
-        <h1><%= session[:date] %></h1>
+        <!--<h1><#%= session[:time] %></h1>-->
+        <!--<h1><#%= session[:date] %></h1>-->
         <div class="logo-img">
             <img class="logo-icon" src="<%= User.find(session[:user]).img %>">
         </div>
+        <p class="timeString"><%= session[:time] %></p>
         <div class="form-container">
             <form action='/post' method='post'>
-                <input type="text" name="detail" placeholder="詳細" cols="30" rows="10">
+                <!--<input class="text-box" type="text" name="detail" placeholder="詳細" cols="30" rows="10">-->
+                <textarea class="text-box" name="detail" placeholder="詳細" cols="30" rows="10"></textarea>
+                <br>
+                <p class="dateString"><%= session[:date] %></p>
             	<input type="submit" value="投稿">
             </form>
         </div>
