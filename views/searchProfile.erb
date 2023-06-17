@@ -9,6 +9,9 @@
 <% flag = 0%>
 <% Friends.all.each do |f| %>
   <% if f.user_id == session[:user] && f.follower_id == session[:searchId] then%>
+    <% p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" %>
+    <% p f.user_id %>
+    <% p f.follower_id %>
     <% flag = 1%>
   <% end %>
 <% end %>

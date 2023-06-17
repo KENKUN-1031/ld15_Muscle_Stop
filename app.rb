@@ -73,6 +73,7 @@ get '/stopwatch' do
 end
 
 get '/friends' do
+    @follow_relations = Friends.where(user_id: session[:user])
     erb :friends
 end
 
@@ -144,3 +145,4 @@ get '/signout' do
     session[:user] = nil
     redirect '/'
 end
+

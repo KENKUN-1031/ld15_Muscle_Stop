@@ -4,20 +4,18 @@
 <body>
     <% unless session[:user] == nil%>
         <div class="Friend-Top">
-            <h1>フレンド一覧</h1>
+            <h1>フォロー欄</h1>
             <img class="top-logo" src="<%= User.find(session[:user]).img%>">
         </div>
-        <% Friends.all.each do |i| %>
+        <% @follow_relations.each do |relation|%>
             <% p "-------FriendId--------"%>
-            <% p i.user_id %>
-            <% if i.user_id == session[:user] then %>
-                <div class="eachFriend">
-                    <div class="logo-img">
-                        <img class="logo-icon" src="<%= User.find(i.follower_id).img %>">
-                    </div>
-                    <p><%= User.find(i.follower_id).username %></p>
+            <% p relation.user_id %>
+            <div class="eachFriend">
+                <div class="logo-img">
+                    <img class="logo-icon" src="<%= User.find(relation.follower_id).img %>">
                 </div>
-            <% end %>
+                <p><%= User.find(relation.follower_id).username %></p>
+            </div>
         <% end %>
     <% end %>
 </body>
