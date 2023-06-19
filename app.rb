@@ -74,6 +74,13 @@ end
 
 get '/friends' do
     @follow_relations = Friends.where(user_id: session[:user])
+    follow_list = []
+    Friends.where(user_id: session[:user]).each do |relation|
+        p "-----------FriendId----------"
+        p relation.user_id
+        follow_list << User.find(relation.follower_id)
+        @relation_list = follow_list
+    end
     erb :friends
 end
 

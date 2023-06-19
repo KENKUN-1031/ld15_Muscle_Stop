@@ -7,15 +7,23 @@
             <h1>フォロー欄</h1>
             <img class="top-logo" src="<%= User.find(session[:user]).img%>">
         </div>
-        <% @follow_relations.each do |relation|%>
-            <% p "-------FriendId--------"%>
-            <% p relation.user_id %>
+        <% @relation_list.each do |relation|%>
             <div class="eachFriend">
                 <div class="logo-img">
-                    <img class="logo-icon" src="<%= User.find(relation.follower_id).img %>">
+                    <img class="logo-icon" src="<%= relation.img%>">
                 </div>
-                <p><%= User.find(relation.follower_id).username %></p>
+                <p><%= relation.username %></p>
             </div>
         <% end %>
+        <%# Friends.all.each do |i| %>
+            <%# if i.user_id == session[:user] then %>
+                <!--<div class="eachFriend">-->
+                <!--    <div class="logo-img">-->
+                <!--        <img class="logo-icon" src="<%#= User.find(i.follower_id).img %>">-->
+                <!--    </div>-->
+                <!--    <p><#= User.find(i.follower_id).username %></p>-->
+                <!--</div>-->
+            <%# end %>
+        <%# end %>
     <% end %>
 </body>
